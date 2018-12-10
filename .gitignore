@@ -1,0 +1,8 @@
+target
+do_not_checkin
+
+.classpath
+.project
+.settings
+.idea
+*.iml

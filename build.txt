@@ -1,0 +1,218 @@
+cd /Users/212396317/AWS3/intellij-projects/workday/ecblogexam
+mvn clean package -DskipTests -o
+
+aws s3 cp target/ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    s3://balde01
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name get-user-session-id \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.UserSessionHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name get-user-session-id \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name create-user-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.CreateUserHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name create-user-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name grant-user-access-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.GrantUserAccessHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name grant-user-access-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name create-blog-entry-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.CreateBlogEntryHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name create-blog-entry-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name find-user-blog-entries-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.FindUserBlogEntriesHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name find-user-blog-entries-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name create-blog-space-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.CreateBlogSpaceHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name create-blog-space-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name find-blogs-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.FindBlogsHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name find-blogs-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name approve-blog-entry-handler \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.ApproveBlogEntryHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name approve-blog-entry-handler \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+aws lambda create-function \
+--region us-west-2 \
+--function-name xxxxxxxxxx \
+--code S3Bucket=balde01,S3Key=ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar,S3ObjectVersion=null \
+--role arn:aws:iam::676593540089:role/service-role/myRolename  \
+--handler com.epc.blog.LambdaFunctionHandler \
+--runtime java8 \
+--timeout 15 \
+--memory-size 512
+
+aws lambda update-function-code \
+    --function-name xxxxxxxxxx \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+{id}
+{
+   "pathParam.userId": "$input.params('id')",
+   "requestBody": "$input.path('$')"
+}
+
+
+{
+   "pathParam.userId": "$input.params('id')",
+
+   "requestBody": "$util.escapeJavaScript($input.json('$'))"
+
+}
+
+
+
+cd /Users/212396317/AWS3/intellij-projects/workday/ecblogexam
+mvn clean package -DskipTests -o
+
+aws s3 cp target/ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    s3://balde01
+
+aws lambda update-function-code \
+    --function-name get-user-session-id \
+    --s3-bucket balde01 \
+    --s3-key ec-blog-exam-1.0-SNAPSHOT-jar-with-dependencies.jar \
+    --s3-object-version null \
+    --publish
+
+
+
+
+
+
+
+
+
