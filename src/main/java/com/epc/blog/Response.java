@@ -21,16 +21,6 @@ public class Response {
         this.os = os;
     }
 
-    public void sendResponse(String body) throws IOException {
-        ObjectNode jsonNode = mapper.createObjectNode();
-        jsonNode.put("body", body);
-        jsonNode.put("status", 200);
-
-        OutputStreamWriter writer = new OutputStreamWriter(os, "UTF-8");
-        writer.write(jsonNode.toString());
-        writer.close();
-    }
-
     public void sendResponse(String body, int status, String reason) throws IOException {
         ObjectNode jsonNode = mapper.createObjectNode();
         jsonNode.put("body", body);
