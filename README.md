@@ -6,11 +6,14 @@ users to publish to their blog spaces.  For a full description of the features,
 consult the Technical Requirements and Implementation document found in the 
 design folder.
 
-## File Manifest
+## Supporting Documents
 
-1. [Project Requirements and Endpoint Implemention](docs/AWS API Gateway Configuration.docx)
-2. [Configuring AWS API Gateway Resources](docs/AWS API Gateway Configuration.docx)
+For full description of the features, implementation, and deployment, refer 
+to the supplemental documentation below.
 
+1. docs/Requirements and Implemention.docx
+2. docs/AWS API Gateway Configuration.docx
+3. docs/Entity Relationship Diagram.jpg
 
 ## Prerequisites
 
