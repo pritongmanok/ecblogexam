@@ -6,6 +6,12 @@ users to publish to their blog spaces.  For a full description of the features,
 consult the Technical Requirements and Implementation document found in the 
 design folder.
 
+## File Manifest
+
+1. [Project Requirements and Endpoint Implemention](docs/AWS API Gateway Configuration.docx)
+2. [Configuring AWS API Gateway Resources](docs/AWS API Gateway Configuration.docx)
+
+
 ## Prerequisites
 
 Prepare the following in your development machine.
@@ -94,20 +100,10 @@ f.  Click the 'Integration Request box'.  Expand the 'Mapping Templates'
        "requestBody": "$util.escapeJavaScript($input.json('$'))"
     }
 g.  Click Save.
-h.  Refer to document xxxx for configuring the other 7 resources and the 
+h.  Refer to document docs/AWS API Gateway Configuration.docx for configuring the other 7 resources and the 
     lambdas associated with them.
-                                                                                                                                                   "pathParam.blogEntryId": "$input.params('blogEntryId')",
-                                                                                                                                                                        "requestBody": "$util.escapeJavaScript($input.json('$'))"
-                                                                                                                                                                     }
-  
+
 </pre>
-
-
-
-
-
-
-
 
 
 
