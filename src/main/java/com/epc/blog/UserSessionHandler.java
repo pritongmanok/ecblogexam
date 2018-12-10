@@ -35,11 +35,7 @@ public class UserSessionHandler implements RequestStreamHandler {
     }
 
     // Returns sessionId
-    private Result getSessionId(String userId, String passwordHash) {
-        return new Result(userId + "::" + passwordHash, HttpStatus.SC_OK, null);
-    }
-
-    private Result _underDevelopmentgetSessionId(String userId, String password) {
+    private Result getSessionId(String userId, String password) {
         UserService userService = new UserService();
         return userService.getSessionId(userId, password);
     }

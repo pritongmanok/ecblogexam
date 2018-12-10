@@ -43,17 +43,6 @@ public class GrantUserAccessHandler implements RequestStreamHandler {
     }
 
     private Result grantAccess(String sessionId, List<String> otherAuthors, String spaceId) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("SessionId=" + sessionId + ",");
-        sb.append("spaceId=" + spaceId);
-        sb.append(", otherAuthors=");
-        for(String s: otherAuthors) {
-            sb.append(s + ",");
-        }
-        return new Result(sb.toString(), HttpStatus.SC_OK, null);
-    }
-
-    private Result underDevelopmentGrantAccess(String sessionId, List<String> otherAuthors, String spaceId) {
         BlogSpaceService blogSpaceService = new BlogSpaceService();
         return blogSpaceService.grantAccess(sessionId, otherAuthors, spaceId);
     }

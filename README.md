@@ -6,8 +6,7 @@ users to publish to their blog spaces.  For a full description of the features,
 consult the Technical Requirements and Implementation document found in the 
 design folder.
 
-This project was deployed in AWS and uses a MySQL database.  
-However, the unit test uses HSQLDB in-memory database, so the unit 
+This project was deployed in AWS and uses a MySQL database.  However, the unit test uses HSQLDB in-memory database, so the unit 
 tests can run in complete isolation.  
 All service methods are covered by the unit tests.
 

@@ -1,7 +1,7 @@
 package com.epc.blog.persistence;
 
 /**
- * Created by 212396317 on 12/9/18.
+ * Created by Eddy Cruz on 12/9/18.
  */
 public class BlogEntry {
     private int id;

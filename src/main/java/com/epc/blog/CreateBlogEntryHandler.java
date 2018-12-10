@@ -35,10 +35,6 @@ public class CreateBlogEntryHandler implements RequestStreamHandler {
 
     /*  Returns the blogEntryId within the Result object */
     private Result createBlogEntry(String sessionId, String uri, String spaceId) {
-        return new Result(sessionId + "::" + uri+ "::" + spaceId, HttpStatus.SC_OK, null);
-    }
-
-    private Result underdevelopment_createBlogEntry(String sessionId, String uri, String spaceId) {
         BlogEntryService blogEntryService = new BlogEntryService();
         return blogEntryService.createBlogEntry(sessionId, uri, spaceId);
     }

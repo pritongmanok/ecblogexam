@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import static com.epc.blog.persistence.ConnectionManager.*;
 
 /**
- * Created by 212396317 on 12/9/18.
+ * Created by Eddy Cruz on 12/9/18.
  */
 public class UserServiceTest extends BaseFixture {
 

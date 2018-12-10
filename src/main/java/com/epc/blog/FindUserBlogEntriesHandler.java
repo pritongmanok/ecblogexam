@@ -40,19 +40,7 @@ public class FindUserBlogEntriesHandler implements RequestStreamHandler {
         response.sendResponse(blogEntriesJson, result.getStatus(), result.getErrorMessage());
     }
 
-    // TODO:  This does not need to return anything.
-    // Just return a string to check scaffolding.
     private Result<List<BlogEntry>> findUserBlogEntries(String sessionId) {
-        List<BlogEntry> blogEntries = new ArrayList<>();
-        BlogEntry blogEntry = new BlogEntry();
-        blogEntry.setUri(sessionId + "-" + sessionId);
-        blogEntry.setApproved(false);
-        blogEntry.setSpaceId(1);
-        blogEntries.add(blogEntry);
-        return new Result(blogEntries, HttpStatus.SC_OK, null);
-    }
-
-    private Result<List<BlogEntry>> underDevelopmentfindUserBlogEntries(String sessionId) {
         BlogEntryService blogEntryService = new BlogEntryService();
         return blogEntryService.findUserBlogEntries(sessionId);
     }

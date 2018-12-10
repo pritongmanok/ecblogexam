@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by 212396317 on 12/8/18.
+ * Created by Eddy Cruz on 12/8/18.
  */
 public class Request {
 

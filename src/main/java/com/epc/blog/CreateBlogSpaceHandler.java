@@ -34,10 +34,6 @@ public class CreateBlogSpaceHandler implements RequestStreamHandler {
 
     // Returns sessionId
     private Result createSpace(String sessionId, String uri) {
-        return new Result(sessionId + "::" + uri,HttpStatus.SC_OK, null);
-    }
-
-    private Result under_development_createSpace(String sessionId, String uri) {
         BlogSpaceService blogSpaceService = new BlogSpaceService();
         return blogSpaceService.createSpace(sessionId, uri);
     }

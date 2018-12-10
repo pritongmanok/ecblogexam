@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 212396317 on 12/9/18.
+ * Created by Eddy Cruz on 12/9/18.
  */
 public class BlogEntryService {
 
@@ -119,4 +119,41 @@ public class BlogEntryService {
 
     }
 
+    public Result approveBlogEntry(String sessionId, boolean approval, String blogEntryId) {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            con = ConnectionManager.getConnection();
+
+            UserSessionService userSessionService = new UserSessionService(con);
+            String user = userSessionService.findUserBySessionId(sessionId);
+            if (user == null) {
+                return new Result(0, HttpStatus.SC_FORBIDDEN, "Invalid sessionId");
+            }
+
+            ps = con.prepareStatement("update blog_entry set approved=? where id=?");
+            ps.setBoolean(1, approval);
+            ps.setInt(2, Integer.parseInt(blogEntryId));
+            ps.executeQuery();
+
+            return new Result("", HttpStatus.SC_OK, null);
+        } catch (SQLException e) {
+            String errorMessage = String.format("Error querying for blog entries of sessionId=%s", sessionId);
+            logger.error(errorMessage, e);
+            return new Result(null, HttpStatus.SC_INTERNAL_SERVER_ERROR, errorMessage);
+
+        } finally {
+            if(rs != null) {
+                try { rs.close(); } catch (SQLException e) { }
+            }
+            if(ps != null) {
+                try { ps.close(); } catch (SQLException e) { }
+            }
+            if(con != null) {
+                try { con.close(); } catch (SQLException e) { }
+            }
+        }
+    }
 }

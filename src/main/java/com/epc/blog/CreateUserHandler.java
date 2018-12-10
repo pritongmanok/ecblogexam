@@ -37,13 +37,9 @@ public class CreateUserHandler implements RequestStreamHandler {
     }
 
     // Returns sessionId
-    private Result _under_development_createUser(String userName, String email, String password) {
+    private Result createUser(String userName, String email, String password) {
         UserService userService = new UserService();
         return userService.createUser(userName, email, password);
-    }
-
-    private Result createUser(String userName, String email, String password) {
-        return new Result(userName + "::" + email+ "::" + password, HttpStatus.SC_OK, null);
     }
 }
 
