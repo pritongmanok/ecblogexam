@@ -7,9 +7,17 @@ consult the Technical Requirements and Implementation document found in the
 design folder.
 
 This project was deployed in AWS and uses a MySQL database.  However, the unit test uses HSQLDB in-memory database, so the unit 
-tests can run in complete isolation.  
-All service methods are covered by the unit tests.
+tests can run in complete isolation.  All service methods are covered by the unit tests.
 
+## Basic Assumption
+
+To simplify the implementation the blog content and space is referred to in the code as 
+a Universal Resource Identifier (URI).  The REST endpoints do not cover
+ how the blog content itself is solicited from the user since the problem
+ use cases never specified how the blog content itself is solicited
+ from the user.  Thus, the solution assumes that the blog content already 
+ exist on the server prior to calling any of the REST endpoints.
+ 
 ## Supporting Documents
 
 For full description of the features, implementation, and deployment, refer 
