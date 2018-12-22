@@ -10,11 +10,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.ge.pds</groupId>
-            <version>1.0-SNAPSHOT</version>
-            <artifactId>aws-mock-services</artifactId>
-        </dependency>
+       
         <dependency>
             <groupId>junit</groupId>
             <version>4.12</version>
